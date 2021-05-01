@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Http\Request;
 use App\Models\Brands;
 
-class BrandsController extends Controller
+class MerekController extends Controller
 {
     public function index()
     {
@@ -26,7 +26,7 @@ class BrandsController extends Controller
         $merek->save();
 
         $notification = array(
-            'message' => 'Data Brand Ditambahkan',
+            'message' => 'Data Merek Berhasil Ditambahkan',
             'alert-type' => 'success'
         );
 

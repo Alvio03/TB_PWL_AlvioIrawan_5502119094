@@ -17,12 +17,12 @@ class ProductController extends Controller
     {
         $user = Auth::user();
         $barang = Product::all();
-        return view('view_product', compact('user', 'barang'));
+        return view('view_barang', compact('user', 'barang'));
     }
 
     public function add_product(Request $req)
     {
-
+dd($req->all());
         $barang = new Product;
 
         $barang->name = $req->get('name');
@@ -42,13 +42,20 @@ class ProductController extends Controller
             );
 
             $barang->photo = $filename;
-            $barang->save();
-
-            $notification = array(
-                'message' => 'Data Barang Berhasil Ditambahkan',
-                'alert-type' => 'success'
-            );
-            return redirect()->route('admin.product')->with($notification);
         }
+        $barang->save();
+
+        $notification = array(
+            'message' => 'Data Barang Berhasil Ditambahkan',
+            'alert-type' => 'success'
+        );
+        return redirect()->route('admin.product')->with($notification);
     }
+    public function getDataProduk($id)
+        {
+            $barang = Product::find($id);
+            return response()->json($barang);
+        }
+
+        
 }

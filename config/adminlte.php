@@ -45,7 +45,7 @@ return [
     |
     */
 
-    'logo' => '<b>Fedor</b> STORAGE',
+    'logo' => '<b>Jucky</b> Storage',
     'logo_img' => 'vendor/adminlte/dist/img/logo.jpg',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
@@ -126,7 +126,7 @@ return [
     'classes_content_wrapper' => '',
     'classes_content_header' => '',
     'classes_content' => '',
-    'classes_sidebar' => 'sidebar-dark-white elevation-4',
+    'classes_sidebar' => 'sidebar-light-white elevation-4',
     'classes_sidebar_nav' => '',
     'classes_topnav' => 'navbar-dark navbar-grey',
     'classes_topnav_nav' => 'navbar-expand',
@@ -243,7 +243,7 @@ return [
         ],
         [
             'text'        => 'Pengelolaan Barang',
-            'url'         => 'admin/kelola_barang',
+            'url'         => 'admin/barang',
             'icon'        => 'fas fa-fw fa-box',
             'can' => 'isAdmin',
         ],
@@ -277,23 +277,23 @@ return [
             ],
         ],
 
-        [
-            'text'        => 'Book',
-            'url'         => 'admin/books',
-            'icon'        => 'fas fa-fw fa-book',
-            'can'         => 'isAdmin',
-        ],
-        ['header' => 'account_settings'],
-        [
-            'text' => 'profile',
-            'url'  => 'profile',
-            'icon' => 'fas fa-fw fa-user',
-        ],
-        [
-            'text' => 'change_password',
-            'url'  => 'profile',
-            'icon' => 'fas fa-fw fa-lock',
-        ],
+        // [
+        //     'text'        => 'Book',
+        //     'url'         => 'admin/books',
+        //     'icon'        => 'fas fa-fw fa-book',
+        //     'can'         => 'isAdmin',
+        // ],
+        // ['header' => 'account_settings'],
+        // [
+        //     'text' => 'profile',
+        //     'url'  => 'profile',
+        //     'icon' => 'fas fa-fw fa-user',
+        // ],
+        // [
+        //     'text' => 'change_password',
+        //     'url'  => 'profile',
+        //     'icon' => 'fas fa-fw fa-lock',
+        // ],
         // [
         //     'text'    => 'multilevel',
         //     'icon'    => 'fas fa-fw fa-share',

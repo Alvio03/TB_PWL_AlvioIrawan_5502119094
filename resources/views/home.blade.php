@@ -32,7 +32,7 @@
     <b>Version</b> 1.0.0
 </div>
 <strong>CopyRight &copy; {{date('Y')}}
-    <a href="#" target="_blank">Mochammad Ilham Maulana</a>.</strong> All Right reserved
+    <a href="#" target="_blank">Alvio Irawan</a>.</strong> All Right reserved
 @stop
 
 @section('css')

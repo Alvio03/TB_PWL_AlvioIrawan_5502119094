@@ -4,10 +4,10 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BookController;
-use App\Http\Controllers\BrandsController;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\ProductController;
-use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\MerekController;
+use App\Http\Controllers\BarangController;
+use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\UserController;
 use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Auth;
 
@@ -76,23 +76,23 @@ Route::post('admin/books/import', [BookController::class, 'import'])
 
 
 //Route User
-Route::get('admin/user', [ProfileController::class, 'index'])
+Route::get('admin/user', [UserController::class, 'index'])
     ->name('admin.user')
     ->Middleware('is_admin');
 
 //route tambah
-Route::post('admin/user', [ProfileController::class, 'add_user'])
+Route::post('admin/user', [UserController::class, 'add_user'])
     ->name('admin.user.submit')
     ->middleware('is_admin');
 
 //route edit
-Route::patch('admin/user/update', [ProfileController::class, 'update_user'])
+Route::patch('admin/user/update', [UserController::class, 'update_user'])
     ->name('admin.user.update')
     ->middleware('is_admin');
-Route::get('admin/ajaxadmin/dataUser/{id}', [ProfileController::class, 'getDataUser']);
+Route::get('admin/ajaxadmin/dataUser/{id}', [UserController::class, 'getDataUser']);
 
 //route delete
-Route::delete('admin/user/delete', [ProfileController::class, 'destroy'])
+Route::delete('admin/user/delete', [UserController::class, 'destroy'])
     ->name('admin.user.delete')
     ->middleware('is_admin');
 
@@ -101,51 +101,59 @@ Route::delete('admin/user/delete', [ProfileController::class, 'destroy'])
 
 
 //Route Categories
-Route::get('admin/kategori', [CategoriesController::class, 'index'])
+Route::get('admin/kategori', [KategoriController::class, 'index'])
     ->name('admin.kategori')
     ->middleware('is_admin');
-Route::post('admin/kategori', [CategoriesController::class, 'add_categories'])
+Route::post('admin/kategori', [KategoriController::class, 'add_categories'])
     ->name('admin.kategori.submit')
     ->middleware('is_admin');
 //route edit categories
-Route::patch('admin/kategori/update', [CategoriesController::class, 'update_categories'])
+Route::patch('admin/kategori/update', [KategoriController::class, 'update_categories'])
     ->name('admin.kategori.update')
     ->middleware('is_admin');
-Route::get('admin/ajaxadmin/dataCategories/{id}', [CategoriesController::class, 'getDataCategories']);
+Route::get('admin/ajaxadmin/dataCategories/{id}', [KategoriController::class, 'getDataCategories']);
 
 //route delete categories
-Route::delete('admin/kategori/delete', [CategoriesController::class, 'delete_categories'])
+Route::delete('admin/kategori/delete', [KategoriController::class, 'delete_categories'])
     ->name('admin.kategori.delete')
     ->middleware('is_admin');
 
 
 //ROUTE UTAMA BRANDS
-Route::get('admin/merek', [App\Http\Controllers\BrandsController::class, 'index'])
+Route::get('admin/merek', [App\Http\Controllers\MerekController::class, 'index'])
     ->name('admin.merek')
     ->middleware('is_admin');
 
 //route tambah brands
-Route::post('admin/merek', [BrandsController::class, 'add_brand'])
+Route::post('admin/merek', [MerekController::class, 'add_brand'])
     ->name('admin.brand.submit')
     ->middleware('is_admin');
 
 //route edit brands
-Route::patch('admin/merek/update', [BrandsController::class, 'update_brands'])
+Route::patch('admin/merek/update', [MerekController::class, 'update_brands'])
     ->name('admin.brand.update')
     ->middleware('is_admin');
-Route::get('admin/ajaxadmin/dataBrands/{id}', [BrandsController::class, 'getDataBrands']);
+Route::get('admin/ajaxadmin/dataBrands/{id}', [MerekController::class, 'getDataBrands']);
 
 //route delete brands
-Route::delete('admin/merek/delete', [BrandsController::class, 'delete_brands'])
+Route::delete('admin/merek/delete', [MerekController::class, 'delete_brands'])
     ->name('admin.brand.delete')
     ->middleware('is_admin');
 
 
 //Route Product
-Route::get('admin/kelola_barang', [App\Http\Controllers\ProductController::class, 'index'])
+Route::get('admin/barang', [App\Http\Controllers\BarangController::class, 'index'])
     ->name('admin.product')
     ->middleware('is_admin');
-
-Route::post('admin/kelola_barang', [ProductController::class, 'add_product'])
-    ->name('admin.product.submit')
+    Route::post('admin/barang', [BarangController::class, 'add_product'])
+        ->name('admin.product.submit')
+        ->middleware('is_admin');
+Route::patch('admin/barang/update', [BarangController::class, 'edit_product'])
+    ->name('admin.product.update')
     ->middleware('is_admin');
+Route::get('admin/ajaxadmin/dataProduct/{id}', [BarangController::class, 'getDataProduct']);
+
+//delete data
+Route::delete('admin/barang/delete',[BarangController::class, 'destroy'])
+->name('admin.product.delete')
+->middleware('is_admin');

@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use App\Models\Categories;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Http\Request;
-use PhpOffice\PhpSpreadsheet\Calculation\Category;
 
-class CategoriesController extends Controller
+class KategoriController extends Controller
 {
     public function index()
     {
@@ -27,7 +26,7 @@ class CategoriesController extends Controller
         $kategori->save();
 
         $notification = array(
-            'message' => 'Tambah Kategori Sukses',
+            'message' => 'Tambah Kategori Berhasil',
             'alert-type' => 'success'
         );
 
@@ -71,4 +70,5 @@ class CategoriesController extends Controller
         );
         return redirect()->route('admin.kategori')->with($notification);
     }
+
 }
