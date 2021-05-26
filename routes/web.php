@@ -145,6 +145,8 @@ Route::delete('admin/merek/delete', [MerekController::class, 'delete_brands'])
 Route::get('admin/barang', [App\Http\Controllers\BarangController::class, 'index'])
     ->name('admin.product')
     ->middleware('is_admin');
+Route::get('admin/laporan/masuk', [App\Http\Controllers\BarangController::class, 'print'])
+    ->middleware('is_admin');
     Route::post('admin/barang', [BarangController::class, 'add_product'])
         ->name('admin.product.submit')
         ->middleware('is_admin');

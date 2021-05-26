@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use PDF;
 use App\Models\Product;
 
 class BarangController extends Controller
@@ -102,5 +103,11 @@ class BarangController extends Controller
         );
 
         return redirect()->route('admin.product')->with($notification);
+    }
+
+    public function print(){
+        $barang = Product::all();
+        $pdf = PDF::loadview('laporan_masuk',['barang'=>$barang]);
+        return $pdf->stream('Laporan.pdf');
     }
 }
